@@ -60,8 +60,8 @@ check()
  count=$(($count + 1))
  if dig $ip_arpa.$i | grep -q "ANSWER SECTION:" ;
  then
-	FOUND_ADDRESS=$(($FOUND_ADDRESS + 1))
-	FOUND_BLACKLISTS[$FOUND_ADDRESS]=$i
+ 	FOUND_ADDRESS=$(($FOUND_ADDRESS + 1))
+ 	FOUND_BLACKLISTS[$FOUND_ADDRESS]=$i
  fi
  done
  if [ $FOUND_ADDRESS -ge 1 ]
@@ -73,7 +73,7 @@ check()
 		count=$(($count + 1))
 		echo "#${count}: $i"
 	done
-	exit 2
+ 	exit 2
  fi
  echo "OK - $ip is not on any of $count DNSBLs"
  exit 0
