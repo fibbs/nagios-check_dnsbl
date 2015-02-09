@@ -66,9 +66,16 @@ check()
  done
  if [ $FOUND_ADDRESS -ge 1 ]
  then
- exit 1
+	count=0
+	echo "$ip is blacklisted in $FOUND_ADDRESS DNSBLs"
+	for BL in "$FOUND_BLACKLISTS[@]"
+	do
+		count=$(($count + 1))
+		echo "#${count}: $i"
+	done
+	exit 2
  fi
- echo "OK - $ip not on $count DNSBLs"
+ echo "OK - $ip is not on any of $count DNSBLs"
  exit 0
 }
 
