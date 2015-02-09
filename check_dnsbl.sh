@@ -60,8 +60,8 @@ check()
  count=$(($count + 1))
  if nslookup $ip_arpa.$i | grep -q "127.0.0." ;
  then
- FOUND_ADRESS=$(($FOUND_ADRESS + 1))
- echo "DNSBL-Alarm: $ip is listed on $i"
+	FOUND_ADDRESS=$(($FOUND_ADDRESS + 1))
+	FOUND_BLACKLISTS[$FOUND_ADDRESS]=$i
  fi
  done
  if [ $FOUND_ADDRESS -ge 1 ]
