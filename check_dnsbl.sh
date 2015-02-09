@@ -58,7 +58,7 @@ check()
  for i in $DNSBLlist
  do
  count=$(($count + 1))
- if nslookup $ip_arpa.$i | grep -q "127.0.0." ;
+ if dig $ip_arpa.$i | grep -q "ANSWER SECTION:" ;
  then
 	FOUND_ADDRESS=$(($FOUND_ADDRESS + 1))
 	FOUND_BLACKLISTS[$FOUND_ADDRESS]=$i
