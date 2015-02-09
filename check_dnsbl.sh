@@ -10,7 +10,7 @@ STATE_CRITICAL=2
 STATE_UNKNOWN=3
 STATE_DEPENDENT=4
 
-FOUND_ADRESS=0
+FOUND_ADDRESS=0
 
 DNSBLlist=`grep -v ^# <<!
 cbl.abuseat.org
@@ -64,7 +64,7 @@ check()
  echo "DNSBL-Alarm: $ip is listed on $i"
  fi
  done
- if [ $FOUND_ADRESS -ge 1 ]
+ if [ $FOUND_ADDRESS -ge 1 ]
  then
  exit 1
  fi
